@@ -32,12 +32,17 @@
 
 ## :gear: Getting Start
 
+Install dependencies
 ```Bash
-# Install dependencies
-yarn install # or
 npm install
+```
+or
+```Bash
+yarn install
+```
 
-# Start application
+Start application
+```Bash
 expo start
 ```
 

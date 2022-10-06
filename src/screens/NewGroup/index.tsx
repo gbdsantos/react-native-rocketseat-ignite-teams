@@ -21,7 +21,7 @@ export function NewGroup() {
         />
 
         <Input
-
+          placeholder="Nome da turma"
         />
 
         <Button

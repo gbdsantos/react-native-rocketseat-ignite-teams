@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { FlatList } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 import { Button } from '@components/Button';
 import { Header } from '@components/Header';
@@ -14,6 +15,12 @@ export function Groups() {
     'Galera da Rocket',
     'Amigos'
   ]);
+
+  const { navigate } = useNavigation();
+
+  function handleNewGroup() {
+    navigate('new');
+  }
 
   return (
     <Container>
@@ -41,6 +48,7 @@ export function Groups() {
         )}
       />
       <Button
+        onPress={handleNewGroup}
         title="Criar nova turma"
       />
     </Container>

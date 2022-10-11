@@ -4,6 +4,8 @@ import { Players } from '@screens/Players';
 
 import { Loading } from '@components/Loading';
 
+import { Routes } from './src/routes'
+
 import {
   useFonts,
   Roboto_400Regular,
@@ -25,7 +27,7 @@ export default function App() {
         barStyle='light-content'
         translucent
       />
-      {fontsLoaded ? <Players /> : <Loading />}
+      {fontsLoaded ? <Routes /> : <Loading />}
     </ThemeProvider>
   );
 };

@@ -33,6 +33,7 @@ export function Groups() {
             onPress={() => { }}
           />
         )}
+        showsVerticalScrollIndicator={false}
         ListEmptyComponent={() => (
           <ListEmpty
             message="Que tal cadastrar a primeira turma?"

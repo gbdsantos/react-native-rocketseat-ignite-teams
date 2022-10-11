@@ -6,9 +6,13 @@ import { Players } from '@screens/Players';
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
-export function AppRoutess() {
+export function AppRoutes() {
   return (
-    <Navigator>
+    <Navigator
+      screenOptions={{
+        headerShown: false
+      }}
+    >
       <Screen
         component={Groups}
         name="groups"

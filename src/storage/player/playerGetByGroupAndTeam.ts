@@ -7,6 +7,7 @@ export async function playersGetByGroupAndTeam(group: string, team: string) {
 
     const players = storage.filter(player => player.team === team);
 
+    return players;
   } catch (error) {
     throw error;
   }

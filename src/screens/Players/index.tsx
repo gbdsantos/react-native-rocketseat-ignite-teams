@@ -1,5 +1,5 @@
 import { Alert, FlatList } from 'react-native';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRoute } from '@react-navigation/native';
 
 import {
@@ -49,14 +49,14 @@ export function Players() {
 
     try {
       await playerAddByGroup(newPlayer, group);
-
+      await fetchPlayersByTeam();
 
     } catch (error) {
       if (error instanceof AppError) {
         Alert.alert('Nova pessoa', error.message)
       } else {
         console.log(error);
-        Alert.alert('Nova pessoa', 'Não foi possível adicioanr');
+        Alert.alert('Nova pessoa', 'Não foi possível adicionar');
       }
     }
   }
@@ -71,6 +71,10 @@ export function Players() {
       Alert.alert('Pessoas', 'Não foi possível carregar as pessoas do time selecionado.');
     }
   }
+
+  useEffect(() => {
+    fetchPlayersByTeam();
+  }, [team]);
 
   return (
     <Container>
@@ -116,10 +120,10 @@ export function Players() {
           players.length === 0 && { flex: 1 }
         ]}
         data={players}
-        keyExtractor={item => item}
+        keyExtractor={item => item.name}
         renderItem={({ item }) => (
           <PlayerCard
-            name={item}
+            name={item.name}
             onRemove={() => { }}
           />
         )}
